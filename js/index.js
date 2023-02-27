@@ -44,16 +44,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     //--facilities
- let facilitiesElm = document.querySelector(".facilities")
- let section3 = document.createElement("section")
- section3.classList.add("facilities")
- section3.innerHTML = `
-    <h1 class="facilities__headline>${facilities.headline}</h1>
- ` 
+    let facilities_headline = document.createElement("h2")
+    facilities_headline.textContent = facilities.headline
+    facilities_section.appendChild(facilities_headline)
 
+    facilities.options.forEach(element => {
 
- facilitiesElm.append (section3)
+        
+        let billede = document.createElement("img");
+        let title = document.createElement("h2");
+        let kort_tekst = document.createElement("p");
+        let container = document.createElement("div")
+    
+        billede.src = element.icon;
+        title.textContent = element.headline;
+        kort_tekst.textContent = element.text
+       
+        
+        container.appendChild(billede)
+        container.appendChild(title)
+        container.appendChild(kort_tekst)
+        
 
+        facilities_section.append(container);
+    })
+        
+    
+    
+    
 
+    
     
 }) // DOMContentLoaded slut
